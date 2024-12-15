@@ -1,0 +1,154 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+/* Feedback Section */
+#feedback {
+    padding: 40px 0;
+}
+
+#fdb1 {
+    background: #fff;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fdb {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.ownerDetails b {
+    font-size: 16px;
+    color: #333;
+}
+
+.ownerDetails p {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Image Styling */
+img {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+img[alt="Owner Pic"] {
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.img-fluid {
+    border-radius: 10px;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+footer .footer-logo h2 {
+    color: #fff;
+    font-size: 24px;
+    margin: 0;
+}
+
+footer address {
+    font-style: normal;
+    line-height: 1.6;
+    margin: 0 0 20px;
+    color: #ddd;
+}
+
+footer address a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer address a:hover {
+    text-decoration: underline;
+}
+
+footer .social-media a {
+    color: #fff;
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+footer .social-media a:hover {
+    color: #007bff;
+}
+
+footer .footer-links a {
+    color: #fff;
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+footer .footer-links a:hover {
+    color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    footer .footer-logo {
+        margin-bottom: 20px;
+    }
+
+    #fdb1 .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #fdb1 .col-lg-6 img {
+        margin-bottom: 20px;
+    }
+}

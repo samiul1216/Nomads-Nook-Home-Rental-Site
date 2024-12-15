@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add A New Property</title>
+    <link rel="stylesheet" href="addnew.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p>Your Property With Us And Be Confident That Your Room Will Be Filled Out!</p>
+        </header>
+
+        <main class="form-container">
+            <h1>Add A New Property</h1>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <!-- First Line -->
+                <div class="form-line">
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" placeholder="Enter Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address <span class="required">*</span></label>
+                        <input type="text" id="address" placeholder="Enter Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="unit">Unit Number <span class="required">*</span></label>
+                        <input type="text" id="unit" placeholder="Enter Unit" required>
+                    </div>
+                </div>
+                <!-- Second Line -->
+                <div class="form-line">
+                    <div class="form-group">
+                        <label for="city">City <span class="required">*</span></label>
+                        <select id="city" required>
+                            <option value="" disabled selected>Select City</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Chittagong">Chittagong</option>
+                            <option value="Khulna">Khulna</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State <span class="required">*</span></label>
+                        <select id="state" required>
+                            <option value="" disabled selected>Select State</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="room-type">Room Type <span class="required">*</span></label>
+                        <select id="room-type" required>
+                            <option value="" disabled selected>Select Room Type</option>
+                            <option value="Private">Private</option>
+                            <option value="Shared">Shared</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Third Line -->
+                <div class="form-line">
+                    <div class="form-group">
+                        <label for="price">Price <span class="required">*</span></label>
+                        <input type="number" id="price" placeholder="Enter Price" required>
+                    </div>
+                </div>
+                <!-- Description (Separate Line) -->
+                <div class="form-group full-width">
+                    <label for="description">Description <span class="required">*</span></label>
+                    <textarea id="description" placeholder="Enter Description" required></textarea>
+                </div>
+                <!-- Upload Photos -->
+                <div class="form-group full-width">
+                    <label>Upload Photos <span class="required">*</span></label>
+                    <div class="upload-box" id="upload-box">
+                        <input type="file" id="photos" multiple accept="image/jpeg, image/png" onchange="handleFiles(this.files)" required>
+                        <div class="upload-content">
+                            <p>Drag your images here, or <span>browse</span></p>
+                            <p><small>Supported: JPG, PNG</small></p>
+                        </div>
+                    </div>
+                    <div id="preview-container"></div>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">Add New Property</button>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        const uploadBox = document.getElementById('upload-box');
+        const previewContainer = document.getElementById('preview-container');
+
+        uploadBox.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadBox.classList.add('drag-over');
+        });
+
+        uploadBox.addEventListener('dragleave', () => {
+            uploadBox.classList.remove('drag-over');
+        });
+
+        uploadBox.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadBox.classList.remove('drag-over');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        function handleFiles(files) {
+            previewContainer.innerHTML = ''; 
+            for (const file of files) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = file.name;
+                    img.classList.add('preview-image');
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
